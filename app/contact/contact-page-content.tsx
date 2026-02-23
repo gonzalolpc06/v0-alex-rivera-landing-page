@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ContactForm } from "@/components/contact-form"
@@ -18,10 +17,6 @@ const CONTACT_INFO = [
 ]
 
 export function ContactPageContent() {
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" })
-  }, [])
-
   return (
     <CtaModalProvider>
       <LearnMoreModalProvider>
