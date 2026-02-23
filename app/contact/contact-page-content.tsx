@@ -4,6 +4,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ContactForm } from "@/components/contact-form"
 import { BackToTop } from "@/components/back-to-top"
+import { FinalCtaSection } from "@/components/final-cta-section"
 import { CtaModalProvider } from "@/components/cta-modal"
 import { SectionWrapper } from "@/components/section-wrapper"
 import { Mail, MapPin, Phone } from "lucide-react"
@@ -46,6 +47,7 @@ export function ContactPageContent() {
           <ContactForm />
         </SectionWrapper>
       </main>
+      <FinalCtaSection />
       <Footer />
       <BackToTop />
     </CtaModalProvider>
