@@ -6,6 +6,7 @@ import { ContactForm } from "@/components/contact-form"
 import { BackToTop } from "@/components/back-to-top"
 import { FinalCtaSection } from "@/components/final-cta-section"
 import { CtaModalProvider } from "@/components/cta-modal"
+import { LearnMoreModalProvider } from "@/components/learn-more-modal"
 import { SectionWrapper } from "@/components/section-wrapper"
 import { Mail, MapPin, Phone } from "lucide-react"
 
@@ -18,6 +19,7 @@ const CONTACT_INFO = [
 export function ContactPageContent() {
   return (
     <CtaModalProvider>
+      <LearnMoreModalProvider>
       <Navbar />
       <main className="flex min-h-screen flex-col pt-16">
         <SectionWrapper className="flex flex-1 flex-col items-center justify-center px-4 py-24 lg:px-8">
@@ -50,6 +52,7 @@ export function ContactPageContent() {
       <FinalCtaSection />
       <Footer />
       <BackToTop />
+      </LearnMoreModalProvider>
     </CtaModalProvider>
   )
 }

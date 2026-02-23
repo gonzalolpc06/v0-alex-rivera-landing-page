@@ -11,22 +11,25 @@ import { FinalCtaSection } from "@/components/final-cta-section"
 import { Footer } from "@/components/footer"
 import { BackToTop } from "@/components/back-to-top"
 import { CtaModalProvider } from "@/components/cta-modal"
+import { LearnMoreModalProvider } from "@/components/learn-more-modal"
 
 export default function Home() {
   return (
     <CtaModalProvider>
-      <Navbar />
-      <main>
-        <HeroSection />
-        <FeaturesSection />
-        <SocialProofSection />
-        <PricingSection />
-        <AboutSection />
-        <FaqSection />
-        <FinalCtaSection />
-      </main>
-      <Footer />
-      <BackToTop />
+      <LearnMoreModalProvider>
+        <Navbar />
+        <main>
+          <HeroSection />
+          <FeaturesSection />
+          <SocialProofSection />
+          <PricingSection />
+          <AboutSection />
+          <FaqSection />
+          <FinalCtaSection />
+        </main>
+        <Footer />
+        <BackToTop />
+      </LearnMoreModalProvider>
     </CtaModalProvider>
   )
 }
