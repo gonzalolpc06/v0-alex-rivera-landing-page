@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Shield, Users, Activity } from "lucide-react"
 import { CtaButton } from "@/components/cta-button"
+import { ParticleGrid } from "@/components/particle-grid"
 
 const TRUST_BADGES = [
   { icon: Shield, label: "NASM Certified" },
@@ -21,9 +22,12 @@ export function HeroSection() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/images/hero-bg.jpg)" }}
       >
-        <div className="absolute inset-0 bg-background/80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
+        <div className="absolute inset-0 bg-background/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
       </div>
+
+      {/* Animated particle grid */}
+      <ParticleGrid />
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-4 py-32 text-center">
