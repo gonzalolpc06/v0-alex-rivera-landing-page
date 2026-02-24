@@ -503,3 +503,4 @@ shadcn/ui components to generate:
 - [ ] Color contrast passes for primary and muted text on navy
 - [ ] No horizontal scroll on any breakpoint
 - [ ] Smooth scroll behavior on all anchor links
+trigger deploy
