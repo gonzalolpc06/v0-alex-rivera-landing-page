@@ -3,6 +3,7 @@
 import {
   SectionWrapper,
   StaggerContainer,
+  ParallaxWrapper,
 } from "@/components/section-wrapper"
 import { TestimonialCard } from "@/components/testimonial-card"
 import { MetricCard } from "@/components/metric-card"
@@ -57,7 +58,9 @@ export function SocialProofSection() {
         {/* Bento grid */}
         <StaggerContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <TestimonialCard {...TESTIMONIALS[0]} />
-          <MetricCard />
+          <ParallaxWrapper offset={30}>
+            <MetricCard />
+          </ParallaxWrapper>
           <TestimonialCard {...TESTIMONIALS[1]} />
         </StaggerContainer>
 

@@ -66,6 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans antialiased">
+        <div className="noise-overlay" />
         {children}
         <Analytics />
         <SpeedInsights />

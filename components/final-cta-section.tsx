@@ -10,8 +10,8 @@ export function FinalCtaSection() {
   const { setOpen: openLearnMore } = useLearnMoreModal()
 
   return (
-    <SectionWrapper className="px-4 py-24 lg:px-8">
-      <div className="mx-auto max-w-3xl text-center">
+    <SectionWrapper id="final-cta" className="px-4 py-24 lg:px-8">
+      <div className="mx-auto max-w-3xl text-center rounded-3xl border border-primary/20 bg-primary/5 p-12 border-pulse">
         {/* Headline */}
         <h2 className="text-balance text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
           Stop managing your fitness.{" "}

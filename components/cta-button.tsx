@@ -27,7 +27,7 @@ export function CtaButton({
 
   const variants = {
     primary:
-      "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20",
+      "relative bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20 overflow-hidden",
     secondary:
       "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border",
     outline:
@@ -47,8 +47,26 @@ export function CtaButton({
       onClick={() => setOpen(true)}
       className={cn(baseStyles, variants[variant], sizes[size], className)}
     >
-      {label}
-      {showArrow && <ArrowRight className="size-4" />}
+      {variant === "primary" && (
+        <motion.div
+          animate={{
+            x: ["-100%", "100%"],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"
+        />
+      )}
+      <span className="relative z-10 flex items-center gap-2">
+        {label}
+        {showArrow && <ArrowRight className="size-4" />}
+      </span>
+
+      {/* Glow effect on hover */}
+      <div className="absolute inset-0 rounded-lg bg-primary/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 blur-xl pointer-events-none" />
     </motion.button>
   )
 }

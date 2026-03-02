@@ -1,7 +1,7 @@
 "use client"
 
-import { type ReactNode } from "react"
-import { motion } from "framer-motion"
+import { type ReactNode, useRef } from "react"
+import { motion, useScroll, useTransform, useInView } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 interface SectionWrapperProps {
@@ -100,4 +100,25 @@ export const scaleIn = {
     scale: 1,
     transition: { duration: 0.5, ease: "easeOut" },
   },
+}
+
+interface ParallaxWrapperProps {
+  children: ReactNode
+  offset?: number
+}
+
+export function ParallaxWrapper({ children, offset = 50 }: ParallaxWrapperProps) {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], [-offset, offset])
+
+  return (
+    <motion.div ref={ref} style={{ y }}>
+      {children}
+    </motion.div>
+  )
 }

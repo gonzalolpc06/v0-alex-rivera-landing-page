@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Shield, Users, Activity } from "lucide-react"
 import { CtaButton } from "@/components/cta-button"
+import { MeshGradient, FloatingBlobs } from "@/components/ui/animated-background-elements"
 
 const TRUST_BADGES = [
   { icon: Shield, label: "NASM Certified" },
@@ -16,13 +17,21 @@ export function HeroSection() {
       id="hero"
       className="relative flex min-h-screen w-full items-center justify-center overflow-hidden"
     >
-      {/* Background image with overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/images/hero-bg.jpg)" }}
-      >
-        <div className="absolute inset-0 bg-background/80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
+      {/* Background image/mesh with overlay */}
+      <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url(/images/hero-bg.jpg)" }}
+        >
+          <div className="absolute inset-0 bg-background/70" />
+        </div>
+
+        {/* Animated Effects */}
+        <MeshGradient />
+        <FloatingBlobs />
+
+        {/* Glass Overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background backdrop-blur-[2px]" />
       </div>
 
       {/* Content */}
@@ -41,13 +50,41 @@ export function HeroSection() {
 
         {/* Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.12,
+                delayChildren: 0.4,
+              },
+            },
+          }}
           className="text-balance text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl"
         >
-          Build the body that{" "}
-          <span className="text-primary">fuels your career.</span>
+          {"Build the body that ".split(" ").map((word, i) => (
+            <motion.span
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              className="inline-block mr-[0.2em]"
+            >
+              {word}
+            </motion.span>
+          ))}
+          <motion.span
+            variants={{
+              hidden: { opacity: 0, scale: 0.9 },
+              visible: { opacity: 1, scale: 1 },
+            }}
+            className="animate-gradient-text inline-block"
+          >
+            fuels your career.
+          </motion.span>
         </motion.h1>
 
         {/* Subheadline */}
